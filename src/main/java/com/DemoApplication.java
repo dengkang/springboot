@@ -18,7 +18,7 @@ import javax.jms.Destination;
 @PropertySource({"classpath:/application.properties","classpath:/redis.properties"})
 
 //暂时去掉数据库加载
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class DemoApplication {
 
 

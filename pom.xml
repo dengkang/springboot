@@ -107,6 +107,25 @@
 			<artifactId>json-smart</artifactId>
 			<version>2.2.1</version>
 		</dependency>
+
+		<!--添加jpa-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- 引入Druid依赖 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.9</version>
+		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 			<dependencies>
