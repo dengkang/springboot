@@ -1,6 +1,7 @@
 package com.example.bean;
 
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
