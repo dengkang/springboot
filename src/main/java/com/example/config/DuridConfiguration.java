@@ -16,7 +16,7 @@ public class DuridConfiguration {
        //ip白名单
        servletRegistrationBean.addInitParameter("allow","127.0.0.1");
        //ip黑名单
-       //servletRegistrationBean.addInitParameter("deny","");
+       servletRegistrationBean.addInitParameter("deny","");
         //控制管理台
         servletRegistrationBean.addInitParameter("loginUsername","druid");
         servletRegistrationBean.addInitParameter("loginPassword","12345678");
@@ -31,7 +31,7 @@ public class DuridConfiguration {
         //添加过滤规则
         filterRegistrationBean.addUrlPatterns("/*");
 
-        filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+        filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico");
         return  filterRegistrationBean;
 
     }

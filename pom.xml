@@ -126,6 +126,12 @@
 			<version>1.1.9</version>
 		</dependency>
 
+		<!--引入数据库密码加密-->
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>1.8</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 			<dependencies>
