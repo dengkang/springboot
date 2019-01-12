@@ -132,7 +132,13 @@
 			<artifactId>jasypt-spring-boot-starter</artifactId>
 			<version>1.8</version>
 		</dependency>
+		<!--引入eureka-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
 	</dependencies>
+
 	<dependencyManagement>
 			<dependencies>
 				<dependency>
