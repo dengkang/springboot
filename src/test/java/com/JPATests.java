@@ -2,6 +2,7 @@ package com;
 
 import com.example.bean.TUser;
 import com.example.dao.UserRepository;
+import com.example.service.TransactionTestService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ public class JPATests {
 
 	@Autowired
 	private UserRepository repository;
-
+	@Autowired
+	private TransactionTestService service;
 
 
 	@Test
@@ -30,6 +32,25 @@ public class JPATests {
 		repository.save(user);
 
 	}
+
+	@Test
+	public void transactionMethod() throws Exception {
+
+
+			service.transactionMethod("transactionMethod5");
+
+
+
+
+	}
+
+
+	@Test
+	public void nestingTransactionMethod() throws Exception {
+		 service.nestingTransactionMethod("nestingTransactionMethod6");
+
+	}
+
 
 
 
