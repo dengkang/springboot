@@ -16,6 +16,7 @@ import java.io.Serializable;
  */
 public class ExpandJpaRepositoryFactoryBean<R extends JpaRepository<T,ID>,T,ID extends Serializable> extends JpaRepositoryFactoryBean<R,T,ID> {
 
+    @Override
     protected RepositoryFactorySupport createRepositoryFactory(EntityManager entityManager){
         return new ExpandJpaRepositoryFactory<T,ID>(entityManager);
     }
@@ -29,6 +30,7 @@ public class ExpandJpaRepositoryFactoryBean<R extends JpaRepository<T,ID>,T,ID e
             this.entityManager = entityManager;
         }
 
+        @Override
         protected Class<?> getRepositoryBaseClass(RepositoryMetadata metadata){
             return ExpandRepositioryImpl.class;
         }

@@ -2,18 +2,28 @@ package com.example.controller;
 
 import com.example.Exception.MyException;
 import com.example.bean.User;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Valid;
+import javax.validation.Validator;
 import java.util.*;
 
 @Controller
+@Api(value = "用户controller")
 public class UserController {
 
     private Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
+
+    @Autowired
+    private Validator validator;
 
     @RequestMapping(value="/index",method = RequestMethod.GET)
     public String index(ModelMap modelMap){
@@ -40,9 +50,12 @@ public class UserController {
     @ApiOperation(value = "添加用户",notes = "根据用户id创建用户")
     @ApiImplicitParam(name="user",value = "用户详细实体",required = true,dataType = "User")
     @PostMapping("/addUser")
-    public String addUser(@ModelAttribute User user){
+    @ResponseBody
+    public User addUser( @RequestBody @Valid User user){
+        Set<ConstraintViolation<User>> set =  validator.validate(user);
+        Assert.isTrue(set.size()==0,"校验不通过");
         users.put(user.getId(),user);
-        return  "success";
+        return  user;
     }
 
     @ApiOperation(value = "更新用户",notes = "修改用户信息")

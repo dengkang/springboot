@@ -1,5 +1,6 @@
-package com;
+package com.example.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -13,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class Swaager2Config {
 
+    @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
                 .select()
@@ -21,7 +23,8 @@ public class Swaager2Config {
                 .build();
     }
 
-    private ApiInfo apiInfo(){
+    @Bean
+    public ApiInfo apiInfo(){
         return new ApiInfoBuilder().title("sprintBoot_demo中构建swaager2 RESULTful APIs")
                 .description("注释")
                 .termsOfServiceUrl("http://www.baidu.com")

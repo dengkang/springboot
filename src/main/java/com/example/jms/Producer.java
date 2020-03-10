@@ -1,15 +1,12 @@
 package com.example.jms;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.jms.core.JmsMessagingTemplate;
-import org.springframework.stereotype.Service;
 
 import javax.jms.Destination;
-@Service("producer")
+//@Service("producer")
 public class Producer {
-    @Autowired
+    //@Autowired
     private JmsMessagingTemplate jmsMessagingTemplate;
 
 

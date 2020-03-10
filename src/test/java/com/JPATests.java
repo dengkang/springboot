@@ -3,12 +3,12 @@ package com;
 import com.example.bean.TUser;
 import com.example.dao.UserRepository;
 import com.example.service.TransactionTestService;
+import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 
 @RunWith(SpringRunner.class)
@@ -22,6 +22,15 @@ public class JPATests {
 	@Autowired
 	private TransactionTestService service;
 
+
+	@Autowired
+	StringEncryptor encryptor;
+
+	@Test
+	public void getPassword(){
+		String password = encryptor.encrypt("123456");
+		System.out.println(password);
+	}
 
 	@Test
 	public void test() throws Exception {
